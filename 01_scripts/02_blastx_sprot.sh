@@ -12,7 +12,7 @@ for file in `ls -1 $QUERY/*.fasta`; do
     
     # Blast command using parallel to increase speed
     cat $file | \
-    parallel -j 10 -k --block 1K --recstart '>' \
+    parallel -j 4 -k --block 1K --recstart '>' \
     --pipe blastx \
     -query - \
     -db $DATABASE \
@@ -25,4 +25,4 @@ done
 # Moving output file into output directory
 mv $QUERY/*.fmt6 $OUTPUT_DIR
 
-touch 02_blastx.complete
+touch blastx.complete

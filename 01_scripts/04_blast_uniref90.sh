@@ -14,7 +14,7 @@ for nucl_assembly in `ls -1 $QUERY_BLASTX/*.fasta`; do
     
     # Blastx command using parallel to increase speed
     cat $nucl_assembly | \
-    parallel -k -j 10 --block 1K --recstart '>' \
+    parallel -k -j 4 --block 1K --recstart '>' \
     --pipe blastx \
     -query - \
     -db $DATABASE \
@@ -31,11 +31,11 @@ mv $QUERY_BLASTX/*.fmt6 $OUTPUT_DIR
 for seq_pep in `ls -1 $QUERY_BLASTP/*.fasta`; do
     
     # Specifying the name of the output file from blastx
-    OUT_BP="${seq_pep%.fasta}.blastx.uniref90.fmt6"
+    OUT_BP="${seq_pep%.fasta}.blastp.uniref90.fmt6"
     
     # Blastx command using parallel to increase speed
     cat $seq_pep | \
-    parallel -k -j 10 --block 1K --recstart '>' \
+    parallel -k -j 4 --block 1K --recstart '>' \
     --pipe blastx \
     -query - \
     -db $DATABASE \

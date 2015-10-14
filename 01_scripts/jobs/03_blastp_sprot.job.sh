@@ -2,8 +2,8 @@
 #$ -N blastp
 #$ -M francois-olivier.gagnon-hebert.1@ulaval.ca
 #$ -m eas
-#$ -l h_vmem=1G
-#$ -l h_rt=24:00:00
+#$ -l h_vmem=4G
+#$ -l h_rt=72:00:00
 #$ -pe smp 5
 #$ -cwd
 #$ -S /bin/bash

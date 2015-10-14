@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N TransD
+#$ -N rnammer
 #$ -M francois-olivier.gagnon-hebert.1@ulaval.ca
 #$ -m eas
 #$ -pe smp 1
@@ -8,4 +8,4 @@
 #$ -cwd
 #$ -S /bin/bash
 
-time 01_scripts/01_TransDecoder.sh
+time 01_scripts/08_rnammer.sh
